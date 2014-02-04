@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="es">
+    <head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+        
+    <meta name="description" content="">
+    <link type="text/css" rel="stylesheet" href="<?= $this->baseUrl() . '/css/stylesheet.css' ?>" charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="<?= $this->baseUrl() . '/css/reset.css' ?>" media="screen">
+    <link type="text/css" rel="stylesheet" href="<?= $this->baseUrl() . '/css/style.css' ?>" media="screen">
+    <link type="text/css" rel="stylesheet" href="<?= $this->baseUrl() . '/css/queries/netbooks-tablets.css' ?>" media="screen and (max-width: 1007px)" />
+    
+    <script type="text/javascript" src="<?= $this->baseUrl() . '/js/html5.js' ?>"></script>
+    <script type="text/javascript" src="<?= $this->baseUrl() . '/js/funciones.js' ?>" ></script>
+    <script type="text/javascript" src="<?= $this->baseUrl() . '/js/jquery.js' ?>" ></script>
+
+    <!--[if IE 7]><link type="text/css" rel="stylesheet" href="../css/ie/ie7.css" media="screen"><![endif]-->
+    <!--[if lt IE 7]><link type="text/css" rel="stylesheet" href="../css/ie/ie6.css" media="screen"><![endif]-->
+    
+    
+    <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-27528663-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+    </head>
+    <body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    
+	$("#bt_influencia_checkbox").attr('src', 'images/bt-checkbox-on.png');
+    $("#bt_popularidad_checkbox").attr('src', 'images/bt-checkbox-off.png');
+    initializatePoliticians( "klout_score", "DESC" );
+
+    $("#influencia_wrapper").click(function(){
+        $("#bt_influencia_checkbox").attr('src', 'images/bt-checkbox-on.png');
+        $("#bt_popularidad_checkbox").attr('src', 'images/bt-checkbox-off.png');
+        initializatePoliticians( "klout_score", "DESC" );
+    });
+
+    $("#popularidad_wrapper").click(function(){
+        $("#bt_popularidad_checkbox").attr('src', 'images/bt-checkbox-on.png');
+        $("#bt_influencia_checkbox").attr('src', 'images/bt-checkbox-off.png');
+        initializatePoliticians( "positive_image", "DESC" );
+    });
+
+    $(".ventana").live('mouseleave', function(){
+        $(".ficha").removeClass("marcada");
+        $(".ventana").hide();
+    });
+
+});
+
+function initializatePoliticians( field, order )
+{
+    $("#_contenido").load("ajax/orderpolitician", {field: field, order: order}, function(){
+        $(".ficha").live('click', function(){
+            $(".ventana").hide();
+            $(".ficha").removeClass("marcada");
+
+            var politishan_key = $(this).attr('politishan_key');
+            var ventana = $("#ventana_"+politishan_key);
+            $(this).addClass('marcada');
+
+            var pos = $(this).offset();
+            var width = $(this).width();
+            //show the menu directly over the placeholder
+            $(ventana).css( { "left": (pos.left - width - 70) + "px", "top":pos.top + "px" } );
+            $(ventana).show();
+        });
+    });
+}
+</script>
+
+<header>
+    <div class="header-center">
+        <div class="header-logo"><img src="images/logo.jpg" alt="Politishan" width="531" height="219"></div>
+        <div class="header-texto">
+            Una web que le toma el pulso a la comunidad e intenta presentar, 
+            sin pasión ni prejuicio, la imagen de los politicos según el pueblo.</div>
+        <div class="header-botones">
+            <div class="floatleft">
+                <div id="influencia_wrapper" style="float: left; cursor: pointer">
+                    <img src="images/bt-influencia.png" alt="Influencia" width="88" height="30">
+                    <img id="bt_influencia_checkbox" src="images/bt-checkbox-off.png" alt="Influencia" width="40" height="30">
+                </div>
+                <div id="popularidad_wrapper" style="float: left; cursor: pointer">
+                    <img src="images/bt-popularidad.png" alt="Influencia" width="101" height="30">
+                    <img id="bt_popularidad_checkbox" src="images/bt-checkbox-off.png" alt="Influencia" width="40" height="30">
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+  </div>
+</header>
+    
+<div class="wrap group">
+    <div class="contenido">
+      <?php echo $this->layout()->content; ?>
+    </div>
+</div>
+
+<footer>
+    <div class="creditos"><img src="images/creditos.jpg" width="203" height="40" usemap="#footermap" ></div>
+    <map name="footermap">
+	  <area shape="rect" coords="0,0,90,100" alt="www.graion.com" href="http://www.graion.com" target="_blank"/>
+	</map>
+</footer>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<div class="lista-politicos" id="lista-politicos">
+    <? foreach ($this->politicians as $key => $politician) {?>
+    <div class="politico">
+        <h2><?= $politician->name ?></h2>
+        <div class="estadisticas-base">
+            <div class="mensajes"><?= $politician->true_reach?></div>
+            <div class="likes">3.688</div>
+        </div>
+
+        <div class="foto">
+            <img src="<?= $politician->profile_image_url ?>" alt="" style="height: 80px; width: 80px"/>
+        </div>
+
+        <!-- Popunder con la info extra -->
+        <div class="popunder-info" style="display:none;">
+            <h2><?= $politician->name ?></h2>
+            <div class="estadisticas-generales">
+                <div class="puntajes">
+                    <div class="mensajes"><?= round($politician->influence_average, 0, PHP_ROUND_HALF_UP); ?>%</div>
+                    <div class="likes">55%</div>
+                </div>
+                <div class="social">
+                    <a href="#"><img src="<?= $this->baseUrl() . '/css/main/images/facebook.png' ?>" alt="Facebook de Cristina Fernández" /></a>
+                    <a href="#"><img src="<?= $this->baseUrl() . '/css/main/images/twitter.png' ?>" alt="Twitter de Cristina Fernández" /></a>
+                </div>
+            </div>
+
+            <div class="estadisticas-mensajes">
+                <div class="mensajes">2.560</div>
+                <div class="likes">1.560<br/>1.347</div>
+            </div>
+
+            <div class="tweets">
+                <div class="tweet tweet-impar">
+                    <p><?= $politician->last_tweet->text ?></p>
+                </div>
+                <div class="tweet tweet-par">
+                    <p><?= $politician->last_mentioned_tweet->text ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?}?>
+</div>

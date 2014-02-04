@@ -1,0 +1,34 @@
+{
+    "reservedWords": [
+      {"word": "fuerza", "connotation": "1"},
+      {"word": "apoyo", "connotation": "1"},
+      {"word": "vamos", "connotation": "1"},
+      {"word": "gracias", "connotation": "1"},
+      {"word": "genio", "connotation": "1"},
+      {"word": "genia", "connotation": "1"},
+      {"word": "genial", "connotation": "1"},
+      {"word": "bien", "connotation": "1"},
+
+      {"word": "puto", "connotation": "-1"},
+      {"word": "puta", "connotation": "-1"},
+      {"word": "yegua", "connotation": "-1"},
+      {"word": "yeguo", "connotation": "-1"},
+      {"word": "forro", "connotation": "-1"},
+      {"word": "forra", "connotation": "-1"},
+      {"word": "negro", "connotation": "-1"},
+      {"word": "negra", "connotation": "-1"},
+      {"word": "ladron", "connotation": "-1"},
+      {"word": "ladrona", "connotation": "-1"},
+      {"word": "chanta", "connotation": "-1"},
+      {"word": "caradura", "connotation": "-1"},
+      {"word": "hijo de puta", "connotation": "-1"},
+      {"word": "hija de puta", "connotation": "-1"},
+      {"word": "hdp", "connotation": "-1"},
+      {"word": "mal", "connotation": "-1"},
+      {"word": "vieja de mierda", "connotation": "-1"},
+      {"word": "viejo de mierda", "connotation": "-1"},
+      {"word": "hija de mil puta", "connotation": "-1"},
+      {"word": "hijo de mil puta", "connotation": "-1"},
+      {"word": "morite", "connotation": "-1"}
+    ]
+}

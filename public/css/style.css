@@ -1,0 +1,263 @@
+/* Getting the new tags to behave */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video{ display: block; }
+mark, rp, rt, ruby, summary, time{ display: inline }
+
+form, fieldset, legend{
+    margin: 0;
+    padding: 0;
+}
+
+.group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.group { display: inline-block; clear: both; }
+/* start commented backslash hack \*/ * html .group { height: 1%; } .group { display: block; } /* close commented backslash hack */
+
+/* Site-wide properties ======================================================== */
+
+html {/*height: 100%;*/}
+body{
+	font: normal normal 10px/10px Tahoma, Arial, Helvetica, Verdana, sans-serif;
+	background: #ececec;
+	height: 100%;
+}
+    
+/* Fibonacci based heading scale ratio */
+h1{ font-size: 4.4em; font-weight: normal; }
+h2{ font-size: 2.8em; font-weight: bold; }
+h3{ font-size: 1.6em; font-weight: bold; }
+h4{ font-size: 1.2em; font-weight: bold; }
+
+/* Reusable classes ============================================================ */
+
+/* Left & Right alignment */
+.left{ float: left; }
+.right{ float: right; }
+
+/* The inside class provides consistent padding. To be used often! */
+.inside{ padding: 20px; }
+
+/* The fraction classes are useful for column lists */
+.half, .third, .quarter, .fifth, .sixth{ width: 100%; }
+.half li, .third li, .quarter li, .fifth li, .sixth li{ float: left; }
+.half li{ padding-right: 5%; width: 45% }
+.third li{  padding-right: 5%; width: 28.3% }
+.quarter li{  padding-right: 5%; width: 20% }
+.fifth li{  padding-right: 5%; width: 15% }
+
+/* For when a <br /> just ain't enough */
+.separator{
+    clear: both;
+    float: left;
+    height: 1px;
+    width: 100%; }
+
+/* Basic Structure ============================================================= */
+.wrap{
+    width: 100%;
+    background: #FFF url(../images/warp-bg.jpg) repeat-y center top;
+    z-index: -1;
+}
+.contenido{
+    margin: 0 auto;
+    padding: 28px 20px 0px 20px;
+    width: 976px;
+    /*height: 250px;*/
+}
+/* Header */
+header{
+    width: 100%;
+    height: 250px;
+    background: #ffff33 url(../images/header-bg.jpg) no-repeat center top;
+}
+.header-center{
+    margin: 0 auto;
+    position: relative;
+    width: 1016px;
+    height: 250px;
+}
+.header-logo{
+    position: relative;
+    top: 0px;
+    left: 100px;
+    float: left;
+}
+.header-texto{
+    width: 364px;
+    height: 109px;
+    font: 17px/17px 'HelveticaLTStdBoldCondensed';
+    margin: 0px 0px 0px 0px;
+    padding: 80px 0px 0px 20px;
+    color: #FFF;
+    float: right;
+}
+.header-botones{
+    margin: 0px 80px 0px 0px;
+    float: right;
+    height: 30px;
+}
+.floatleft{
+    float: left;
+}
+.ventana{
+    position: absolute;
+    width: 350px;
+    height: 386px;
+    background: url(../images/ventana.png) no-repeat;
+    z-index: 1;
+}
+.ventana-nombre{
+    font: 22px 'HelveticaNeueRomanRegular';
+    margin: 23px 10px 5px 35px;
+    color: #000;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px #FFF;
+}
+.ventana-porcentajes{
+    margin: 10px 0px 0px 90px;
+    width: 125px;
+    height: 100px;
+    float: left;
+}
+.ventana-parlante-porcentaje{
+    font: 44px 'HelveticaLTStdBoldCondensed';
+    color: #000;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px #FFF;
+    width: 125px;
+}
+.ventana-corazon-porcentaje{
+    font: 44px 'HelveticaLTStdBoldCondensed';
+    margin: -10px 0px 0px 0px;
+    color: #000;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px #FFF;
+    width: 125px;
+}
+.ventana-redes{
+    margin: 70px 0px 0px 0px;
+    width: 68px;
+    height: 34px;
+    float: left;
+}
+.ventana-fb{
+    width: 34px;
+    height: 34px;
+    float: left;
+}
+.ventana-tw{
+    width: 34px;
+    height: 34px;
+    float: left;
+}
+.ventana-parlante{
+    font: 20px 'HelveticaNeueRomanRegular';
+    margin: 24px 0px 0px 80px;
+    color: #000;
+    text-align: right;
+    width: 50px;
+    float: left;
+    clear:both;
+    text-shadow: 0 1px 1px #FFF;
+}
+.ventana-corazon{
+    font: 20px 'HelveticaNeueRomanRegular';
+    margin: 16px 0px 20px 95px;
+    color: #000;
+    text-align: right;
+    width: 50px;
+    float: left;
+    text-shadow: 0 1px 1px #FFF;
+}
+.ventana-feed{
+    font: 11px/13px Arial, Helvetica, sans-serif;
+    margin: 10px 0px 0px 93px;
+    color: #000;
+    text-decoration: none;
+    width: 190px;
+    height: 45px;
+    clear:both;
+    float: none;
+}
+.ventana-feed a, .ventana-feeda:hover{
+    text-decoration: none;
+    color: #0a4d7a;
+}
+.ficha{
+    margin: 0px 20px 23px 30px;
+    width: 143px;
+    height: 245px;
+    float: left;
+    background: #90F url(../images/ficha.jpg) no-repeat;
+}
+.ficha-nombre{
+    font: 15px/15px 'HelveticaNeueRomanRegular';
+    margin: 8px 5px 5px 5px;
+    color: #FFF;
+    text-align: center;
+    text-transform: uppercase;
+    height: 30px;
+}
+.ficha-parlante{
+    font: 20px 'HelveticaNeueRomanRegular';
+    margin: 11px 25px 5px 5px;
+    color: #FFF;
+    text-align: right;
+}
+.ficha-corazon{
+    font: 20px 'HelveticaNeueRomanRegular';
+    margin: 11px 25px 5px 5px;
+    color: #FFF;
+    text-align: right;
+}
+.ficha-foto{
+    margin: 38px 0px 0px 35px;
+    width: 73px;
+    height: 73px;
+}
+.marcada{
+    background: #90F url(../images/ficha-on.jpg) no-repeat;
+}
+.ultima{
+    margin: 0px 0px 0px 0px;
+}
+nav{
+}
+
+/* Content */
+article{
+}
+
+/* Sidebar */
+aside{
+}
+
+/* Footer */
+footer{
+    width: 100%;
+    height: 40px;
+    background: #ececec url(../images/footer-bg.jpg) repeat-x;
+}
+.creditos{
+    margin: 0px auto;
+    width: 1016px;
+    height: 35px;
+    text-align: right;
+}
+    
+/* Project specifics =========================================================== */
+/* Pour some CSS below ========================================================= */
+
+
+p{
+	margin:0px 0px 20px 0px;
+}
+A{
+	text-decoration: none;
+	color: #efefef;
+}
+A:hover{
+	color: #FFF;
+}
+
+#wrapper {
+	width: 900px;
+}

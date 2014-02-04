@@ -1,0 +1,57 @@
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    initializatePoliticians();
+
+    $("#influencia").click(function(){
+           $("#contenido").load("ajax/orderpolitician", {field: "influence_average", order: "DESC"});
+    });
+
+});
+
+function initializatePoliticians()
+{
+    $("#contenido").load("ajax/orderpolitician", {field: "name", order: "ASC"});
+}
+
+// Muestra la información adicional del político
+$('#lista-politicos .politico').live('mouseenter', function(){
+
+    // En base a la posición (relativa al contenedor) muestra la información a la izquierda o la derecha.
+    var posicion = $(this).position();
+    var ancho_contenedor = $('#lista-politicos').width();
+    var clase_popunder = '';
+
+    if( posicion.left < ancho_contenedor / 2 ) {
+        clase_popunder = 'popunder-derecha';
+    }
+    else {
+        clase_popunder = 'popunder-izquierda';
+    }
+
+    // Pone la clase correspondiente y muestra la info.
+    $('.popunder-info', this).stop(true, true).removeClass('popunder-derecha').removeClass('popunder-izquierda').addClass( clase_popunder ).fadeIn(150);
+
+    // Le pone un z-index mayor al político (por las dudas)
+    $(this).css('z-index', '9000');
+    $(this).addClass('politico-hover');
+
+});
+
+// Oculta la info
+$('#lista-politicos .politico').live('mouseleave', function(){
+
+    $('.popunder-info', this).stop(true, true).fadeOut(100);
+
+    $(this).css('z-index', '');
+    $(this).removeClass('politico-hover');
+
+});
+</script>
+
+
+<div id="contenido">
+
+</div>

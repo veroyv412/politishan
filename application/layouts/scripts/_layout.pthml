@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+
+    <!-- JAVASCRIPTS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?= $this->baseUrl() . '/css/main/styles.css' ?>" />
+    <link rel="stylesheet" href="<?= $this->baseUrl() . '/css/twitter.css' ?>" />
+  </head>
+  <body>
+
+      <div id="header-holder">
+            <div id="header">
+                <div id="info-sitio">
+                    <h1 id="logo">
+                        <a href="#"><img src="<?= $this->baseUrl() . '/css/main/images/logo-politishan.png' ?>" alt="Politishan" /></a>
+                    </h1>
+                    <div id="tagline">
+                        <p>Politishan does the searching for you by indexing mundial political twitter into one<br/>
+                        location. The site maintains a list of politicians twitters as well as popular hash tags.</p>
+                    </div>
+                </div>
+
+                <div id="filtros-header">
+                    <form id="form-filtros">
+                        <label><input type="checkbox" name="pais" value="1" /> País</label>
+                        <label><input type="checkbox" name="influencia" id="influencia" value="1" /> Influencia</label>
+                        <label><input type="checkbox" name="popularidad" value="1" /> Popularidad</label>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="contenido-holder">
+            <?php echo $this->layout()->content; ?>
+        </div>
+
+        <div id="footer-holder">
+            <div id="footer">
+            </div>
+        </div>
+  </body>
+</html>
+
+

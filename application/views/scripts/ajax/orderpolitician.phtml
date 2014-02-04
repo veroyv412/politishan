@@ -1,0 +1,32 @@
+<?
+$i = 0;
+?>
+<? foreach ($this->politicians as $key => $politician) {?>
+    <div class="ventana" style="display: none" id="ventana_<?=$key?>">
+        <div class="ventana-nombre"><?= $politician->name ?></div>
+        <div class="ventana-porcentajes">
+            <div class="ventana-parlante-porcentaje"><?= isset($politician->klout_score) ? $politician->klout_score : "0" ?>%</div>
+            <div class="ventana-corazon-porcentaje"><?= isset($politician->positive_image) ? $politician->positive_image : "0" ?>%</div>
+        </div>
+        <div class="ventana-redes">
+            <div class="ventana-fb"><a href="javascript:void(0);"><img src="images/ico-fb.jpg" width="34" height="34"></a></div>
+            <div class="ventana-tw"><a href="javascript:void(0);"><img src="images/ico-tw.jpg" width="34" height="34"></a></div>
+
+        </div>
+        <div class="ventana-parlante"><?=$politician->true_reach?></div>
+        <div class="ventana-corazon"><?=isset($politician->total_positive) ? $politician->total_positive : "0"?><br><?=isset($politician->total_negative) ? $politician->total_negative : "0" ?></div>
+        <div class="ventana-feed" title="<?= $politician->last_tweet->text?>"><?= substr($politician->last_tweet->text, 0, 100) . "..."?></div>
+        <div class="ventana-feed" title="<?= $politician->last_mentioned_tweet->text?>"><?= substr($politician->last_mentioned_tweet->text, 0, 100) . "..."?></div>
+    </div>
+
+
+    <div>
+            <div class="ficha" politishan_key="<?=$key?>" style="cursor: pointer">
+                <div class="ficha-nombre"><?= $politician->name ?></div>
+                <div class="ficha-parlante"><?= isset($politician->klout_score) ? $politician->klout_score : "0"?></div>
+                <div class="ficha-corazon"><?= isset($politician->positive_image) ? $politician->positive_image : "0" ?>%</div>
+                <div class="ficha-foto"><img src="<?= $politician->profile_image_url ?>" width="73" height="73"></div>
+          </div>
+    </div>
+    <? $i++ ?>
+<?}?>
